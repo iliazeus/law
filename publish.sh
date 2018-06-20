@@ -6,6 +6,7 @@ cd gh-pages
 
 git checkout gh-pages
 cp ${TRAVIS_BUILD_DIR}/*.html .
+cp -r ${TRAVIS_BUILD_DIR}/q/ .
 
 git add -A
 git commit -m "Build gh-pages from:" -m "$(git log --oneline master | head -n 1)"
