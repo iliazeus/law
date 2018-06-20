@@ -1,0 +1,22 @@
+branches:
+  only:
+  - master
+
+before_install:
+- sudo apt-get update -qq
+- sudo apt-get install -y pandoc
+- chmod u+x ./build.sh
+- chmod u+x ./publish.sh
+
+script: "./build.sh"
+
+after_success:
+- "./publish.sh"
+
+env:
+  global:
+  - secure: o3Pg15pRjAywXJYxGppYWot8S+QnBx726A90e4ZmWSaFYDBykqhsLF3n8GlTNerwHGefsY7cbOMz+e5pyCD6213i+m0EKKQxMYU2JDNwEOj0sZW+O04yfkWbx4BsjpRyZypsiKL9Q2KW3XP8rFw8pR9QvWJWkwQmogWUTO6vsfPdMEvxw96hyZYWmvq9T89K6jNfBlkUyfafEBv6hh/4uY/h0r1l3bnmOMOn+f6TkrB5UNG6a1kD1OgHwJpFmFKxwwo2NXSE9FRnAE9XEllB81txDQxZpP52VtPcpCxPQNFRRRRF0SEaVz7FneFoJQoNz+ispNPCN408FL6lOAX39cqnoPIcgcLwrMbFPlaqWj7TGxCS1v8tyVq9swVa8NoQE2KNvE08JeJ37c0O0FSbrrqQauQIR0vyav3C9UgzQAQhHESWyl/K2wd1fXUs9oRRWy8FWed1zHlES1eI1NdEpPhGp7VtM7Z6Hu3C5nL/0U8teIQIxv49vrCG/cSOEDr/Hba/RRXwJFNf2miCW8+lU5s+T2hmGkLuenjBu3rStq+vUa+uaBBsEzWASn95j+yOS8kdoa3jJ8p68ikDQE3n44rC53n/A6q0LuA2szK16PkwqknuGK4kD2vWuyPipUoUIKw5ngLoQlJNlNLlpeyrH0D7wpqgfArJSab60b8OkwM=
+  - GH_USER_NAME: iliazeus
+  - GH_PROJECT_NAME: law
+  - GH_AUTHOR_NAME: Travis
+  - GH_AUTHOR_EMAIL: noreply@travis.org
